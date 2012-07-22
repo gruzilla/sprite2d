@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>sprite2d example</title>
+
+		<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+		<script src="../src/js/sprite2d.js"></script>
+		<script src="example.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#game').sprite2d();
+			});
+		</script>
+
+		<link rel="stylesheet" rev="stylesheet" href="../src/css/sprite2d.css"></link>
+		<style>
+			#game {
+				width: 400px;
+				height: 400px;
+				background-color: #AFAFAF;
+			}
+			#game div[data-sprite2d-sprite="ball"] {
+				width: 20px;
+				height: 20px;
+				border-radius: 10px;
+				--webkit-border-radius: 10px;
+				background-color: #933;
+			}
+			#game span[data-sprite2d-button] {
+				width: 150px;
+				top: 360px;
+				left: 220px;
+				border-radius: 5px;
+				--webkit-border-radius: 5px;
+				border: 3px solid black;
+				background-color: #EFEFEF;
+				padding: 3px;
+				text-align: center;
+			}
+			#game span[data-sprite2d-button]:hover {
+				border-color: #666;
+				background-color: #CCC;
+			}
+			#game div[data-sprite2d-scene="circleScene"] div[data-sprite2d-sprite="ball"] {
+				top: 100px;
+				left: 100px;
+			}
+			#game div[data-sprite2d-scene="moveScene"] div[data-sprite2d-sprite="ball"] {
+				top: 200px;
+				left: 200px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>sprite2d examples</h2>
+		
+		<div data-sprite2d-game="examplegame" id="game">
+
+			<div data-sprite2d-scene="circleScene" data-sprite2d-class="$.exampleGame.CircleScene">
+
+				<div data-sprite2d-sprite="ball"></div>
+
+				<span data-sprite2d-button="moveSceneBtt" data-sprite2d-action="game.switchScene:moveScene">switch to move scene</span>
+			</div>
+
+			<div data-sprite2d-scene="moveScene" data-sprite2d-class="$.exampleGame.MoveScene">
+
+				<div data-sprite2d-sprite="ball"></div>
+
+				<span data-sprite2d-button="circleSceneBtt" data-sprite2d-action="game.switchScene:circleScene">switch to circle scene</span>
+			</div>
+		</div>
+	</body>
+</html>
